@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { BASE_URL } from '../constraints';
 import User from './User';
 
 function UserContainer(props) {
@@ -17,7 +18,7 @@ function UserContainer(props) {
   function populateUsers() {
     console.log(users);
     return users.map((user, idx) => (
-      <User user={user} key={user.id}/>
+      <User user={user} key={user.id} />
     ));
   }
 

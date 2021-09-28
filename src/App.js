@@ -1,8 +1,9 @@
-import irlogo from './irlogo.png';
-import Navbar from './Components/Navbar';
-import Home from './Components/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Navbar from './Components/Navbar';
+import irlogo from './irlogo.png';
+import Home from './Components/Home';
 import './App.css';
+import UserContainer from './Components/UserContainer';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         <Switch>
      <Route exact path="/">
        <Home />
+       </Route>
+       <Route path="/UserContainer">
+       <UserContainer />
        </Route>
       </Switch>
       </header>

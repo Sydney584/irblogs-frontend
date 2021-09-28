@@ -7,6 +7,7 @@ function Navbar() {
                <nav className="navbar d-flex justify-content-center fw-bolder">
                    <div className="links">
                        <Link to="/">Home</Link><br/>
+                       <Link to="/UserContainer">Bloggers</Link><br/>
                        
                    </div>
                </nav>
