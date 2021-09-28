@@ -1,11 +1,16 @@
 import React from 'react';
-import Home from './Home';
+import {Link} from 'react-router-dom';
 
-function Navbar(props) {
+function Navbar() {
     return (
-        <div>
-            <Home />
-        </div>
+        <div className="container-sm">
+               <nav className="navbar d-flex justify-content-center fw-bolder">
+                   <div className="links">
+                       <Link to="/">Home</Link><br/>
+                       
+                   </div>
+               </nav>
+               </div>
     );
 }
 
