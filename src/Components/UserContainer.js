@@ -5,14 +5,25 @@ import User from './User';
 
 function UserContainer(props) {
     
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState([]);
+
 
   // READ
 
   useEffect(() => {
     fetch(BASE_URL + "users")
-      .then((res) => res.json())
-      .then((json) => setUsers(json));
+      .then(res => {
+          if (!res.ok) {
+              throw Error('could not fetch users');
+          }
+          return res.json();
+        })
+      .then(json => {
+          setUsers(json);
+      })
+      .catch(error => {
+          console.error('Danger Will Robinson there is a prolem with your fetch request', error);
+      })
   }, []);
 
   function populateUsers() {
