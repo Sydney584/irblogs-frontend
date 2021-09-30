@@ -1,4 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { BASE_URL } from '../constraints';
+import Blogpost from './Blogpost';
 
 function BlogpostContainer(props) {
     
@@ -25,7 +28,7 @@ function BlogpostContainer(props) {
   
     function populateBlogPosts() {
       console.log(blogposts);
-      return users.map((blogpost, idx) => (
+      return blogposts.map((blogpost, idx) => (
         <Blogpost blogpost={blogpost} key={blogpost.id} />
       ));
     }
