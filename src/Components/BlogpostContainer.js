@@ -6,6 +6,8 @@ import Blogpost from './Blogpost';
 function BlogpostContainer(props) {
     
     const [blogposts, setBlogposts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
 
     // READ
@@ -20,6 +22,8 @@ function BlogpostContainer(props) {
           })
         .then(json => {
             setBlogposts(json);
+            setIsLoading(false);
+            setError(null);
         }) 
         .catch(error => {
             console.error('There is a prolem with your fetch request. Please try again', error);
@@ -37,7 +41,9 @@ function BlogpostContainer(props) {
 
     
     return (
-        <div>
+        <div className="blogpost-contiainer">
+           { error && <div>{ error }</div> }
+     { isLoading && <div>LOADING...</div> }
             <h2 className="users-header">Blogs</h2>
         <div className="user-container">{blogposts && populateBlogPosts()}</div>
         </div>
