@@ -38,7 +38,7 @@ function BlogpostContainer(props) {
     
     return (
         <div>
-            <h2 className="users-header">Bloggers</h2>
+            <h2 className="users-header">Blogs</h2>
         <div className="user-container">{blogposts && populateBlogPosts()}</div>
         </div>
     );
