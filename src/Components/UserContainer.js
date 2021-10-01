@@ -4,7 +4,7 @@ import { BASE_URL } from '../constraints';
 import User from './User';
 import UserForm from './UserForm';
 
-function UserContainer(props) {
+function UserContainer() {
     
     const [users, setUsers] = useState([]);
 
@@ -30,7 +30,7 @@ function UserContainer(props) {
   function populateUsers() {
     console.log(users);
     return users.map((user, idx) => (
-      <User user={user} key={user.id} />
+      <User user={user} updateUser={updateUser} key={user.id} />
     ));
   }
 
@@ -50,6 +50,27 @@ function UserContainer(props) {
 
   }
 
+  //  UPDATE
+       
+  function updateUser(user) {
+    fetch(BASE_URL + "users/" + user.id, {
+        method: "PUT",
+        body: JSON.stringify(user),
+        headers: {
+       "Accept": "applicaton/json",
+       "Content-Type": "application/json",
+       },
+    });
+  
+  const newUsers = users.map ((nuser) => {
+    if (nuser.id === user.id) {
+        nuser = user;
+    }
+    
+    return nuser;
+});
+setUsers(newUsers);
+}
     
     return (
         <div>
