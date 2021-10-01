@@ -71,6 +71,14 @@ function UserContainer() {
 });
 setUsers(newUsers);
 }
+
+function deleteUser(user) {
+  fetch(BASE_URL + "users/" + user.id, {
+    method: "DELETE",
+  });
+  const newUsers = users.filter((nuser) => nuser.id !== user.id);
+  setUsers(newUsers);
+}
     
     return (
         <div>
