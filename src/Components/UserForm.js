@@ -18,16 +18,20 @@ const handleSubmit = (e) => {
 
     return (
         <div>
-            <h2>Become an Indigo Room Blogger</h2>
-            <p>Or a reader by creating your account below. You don't have to blog to register. You can read blogs, post a blog or comment on one.</p>
-            <form onSubmit={handleSubmit}>
-                <input name="first_name" value={user.first_name} onChange={handleChange} />
-                <input name="last_name" value={user.last_name} onChange={handleChange} />
-                <input name="user_name" value={user.user_name} onChange={handleChange} />
-                <input name="email" value={user.email} onChange={handleChange} />
-                <button type="submit">Register My Account</button>
-            </form>
+            <h2>Create Your Account Below</h2>
             
+            <form onSubmit={handleSubmit} className="user-form">
+                <label className="form-label">First Name</label>
+                <input type="text" placeholder='Type First Name Here' name="first_name" value={user.first_name} onChange={handleChange} />
+                <label className="form-label">Last Name</label>
+                <input type="text" placeholder='Type Last Name Here' name="last_name" value={user.last_name} onChange={handleChange} />
+                <label className="form-label">User Name</label>
+                <input type="text" placeholder='Create a User Name' name="user_name" value={user.user_name} onChange={handleChange} />
+                <label className="form-label">Email</label>
+                <input type="text" placeholder='Type your email address' name="email" value={user.email} onChange={handleChange} />
+                <button type="submit">Create My Account</button>
+            </form>
+            <p>Or a reader by creating your account below. You don't have to blog to register. You can read blogs, post a blog or comment on one.</p>
         </div>
     );
 }
