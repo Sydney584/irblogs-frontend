@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from '../constraints';
 import User from './User';
+import UserForm from './UserForm';
 
 function UserContainer(props) {
     
@@ -54,6 +55,10 @@ function UserContainer(props) {
         <div>
         <h2 className="users-header">Bloggers</h2>
         <div className="user-container">{users && populateUsers()}</div>
+        <div className="userForm">
+
+        <UserForm createUser={createUser} />
+        </div>
         
       </div>
     );
