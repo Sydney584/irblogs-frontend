@@ -33,6 +33,22 @@ function UserContainer(props) {
     ));
   }
 
+  // CREATE
+
+  function createUser(user) {
+    fetch(BASE_URL + "users", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => setUsers([...users, json]));
+
+  }
+
     
     return (
         <div>
